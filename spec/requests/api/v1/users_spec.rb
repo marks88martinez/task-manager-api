@@ -4,12 +4,12 @@ RSpec.describe "Users API", type: :request do
   let!(:user) {create(:user)}
   let(:user_id) {user.id}
 
-  before { host! "api.qualquerdominio.dev"}
+  before { host! "api.taskmanager.dev"}
 
   describe "GET /users/:id" do
     before do
       headers = {"Accept" => "application/vnd.taskmanager.v1"}
-      get "/users/#{user_id}", {}, headers
+      get "users/#{user_id}",params: {}, headers: headers
     end
 
     context  "when the user exists" do
